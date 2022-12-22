@@ -175,7 +175,7 @@ class NewVersionPlus {
     return VersionStatus._(
       localVersion: _getCleanVersion(packageInfo.version),
       storeVersion: _getCleanVersion(forceAppVersion ?? storeVersion ?? ""),
-      appStoreLink: uri.toString(),
+      appStoreLink: "https://play.google.com/store/apps/details?id=$id",
       releaseNotes: null,
     );
   }
