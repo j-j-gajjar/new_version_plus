@@ -161,13 +161,7 @@ class NewVersionPlus {
     final id = androidId ?? packageInfo.packageName;
     final uri = Uri.https("play.google.com", "/store/apps/details",
         {"id": id.toString(), "hl": "en_US"});
-    final marketUri = Uri.https("market://details?id=$id");
-    var response;
-    try{
-      response= await http.get(marketUri);
-    }catch(_){
-      response= await http.get(uri);
-    }
+    final response = await http.get(uri);
     debugPrint(response.body);
     if (response.statusCode != 200) {
       throw Exception("Invalid response code: ${response.statusCode}");
